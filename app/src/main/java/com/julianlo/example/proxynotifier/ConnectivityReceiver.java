@@ -7,10 +7,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Proxy;
 import android.net.ProxyInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
 /**
@@ -39,8 +42,21 @@ public class ConnectivityReceiver extends BroadcastReceiver {
 
     private static void sendNotification(Context context) {
         // Proxy info
-        ProxyInfo proxyInfo = ProxyMaster.getProxyInfo(context);
-        final boolean isProxyOn = (proxyInfo != null);
+        boolean isProxyOn;
+        String proxyHost = null;
+        String proxyPort = null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            ProxyInfo proxyInfo = ProxyMaster.getProxyInfo(context);
+            isProxyOn = (proxyInfo != null);
+            if (isProxyOn) {
+                proxyHost = proxyInfo.getHost();
+                proxyPort = String.valueOf(proxyInfo.getPort());
+            }
+        } else {
+            proxyHost = System.getProperty("http.proxyHost");
+            proxyPort = System.getProperty("http.proxyPort");
+            isProxyOn = (proxyHost != null) && (proxyPort != null);
+        }
 
         StringBuilder sb = new StringBuilder()
                 .append("Proxy is ")
@@ -48,9 +64,9 @@ public class ConnectivityReceiver extends BroadcastReceiver {
 
         if (isProxyOn) {
             sb.append(": ")
-                    .append(proxyInfo.getHost())
+                    .append(proxyHost)
                     .append(":")
-                    .append(proxyInfo.getPort());
+                    .append(proxyPort);
         }
         final String title = sb.toString();
 
@@ -82,7 +98,7 @@ public class ConnectivityReceiver extends BroadcastReceiver {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
                 .setSmallIcon(isProxyOn ? R.drawable.ic_priority_high_black_24dp : R.drawable.ic_check_black_24dp)
-                .setColor(context.getColor(isProxyOn ? R.color.notification_proxy_on : R.color.notification_proxy_off))
+                .setColor(ContextCompat.getColor(context, isProxyOn ? R.color.notification_proxy_on : R.color.notification_proxy_off))
                 .setContentTitle(title)
                 .setContentText(text)
                 .setContentIntent(pendingIntent)
