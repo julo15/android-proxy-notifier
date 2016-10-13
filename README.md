@@ -1,6 +1,8 @@
 # Android Proxy Notifier
 
 This app shows and maintains an [ongoing notification](https://developer.android.com/reference/android/app/Notification.Builder.html#setOngoing%28boolean%29) that displays your current proxy status. 
+![](https://github.com/julo15/android-proxy-notifier/blob/master/images/proxy-off.png?raw=true)
+![](https://github.com/julo15/android-proxy-notifier/blob/master/images/proxy-on.png?raw=true)
 
 ## How it works
 
@@ -11,9 +13,6 @@ The app has a `BroadcastReceiver` for wifi and proxy changes, and will keep the 
 1. Download the [apk](https://github.com/julo15/android-proxy-notifier/blob/master/release/proxy-notifier-161013.apk?raw=true).
 2. Open the apk on your Android device to install.
 3. Open the `ProxyNotifier` app to start the notification.
-
-![](https://github.com/julo15/android-proxy-notifier/blob/master/images/proxy-off.png?raw=true =500x)
-![](https://github.com/julo15/android-proxy-notifier/blob/master/images/proxy-on.png?raw=true =500x)
 
 ## That's pretty much it
 
