@@ -56,6 +56,7 @@ public class ConnectivityReceiver extends BroadcastReceiver {
         final String text = proxyDetails.getWifiSummary();
 
         final Intent intent = new Intent(context, MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         final PendingIntent pendingIntent = PendingIntent.getActivity(
                 context,
                 MainActivity.REQUEST_NOTIFICATION_LAUNCH,
