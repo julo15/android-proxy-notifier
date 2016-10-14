@@ -10,7 +10,7 @@ The app has a `BroadcastReceiver` for wifi and proxy changes, and will keep the 
 
 ## Installation
 
-1. Download the [apk](https://github.com/julo15/android-proxy-notifier/blob/master/release/proxy-notifier-161013.apk?raw=true).
+1. Download the [apk](https://github.com/julo15/android-proxy-notifier/blob/master/release/proxy-notifier-latest.apk?raw=true).
 2. Open the apk on your Android device to install.
 3. Open the `ProxyNotifier` app to start the notification.
 
