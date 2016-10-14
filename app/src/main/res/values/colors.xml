@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#2e3834</color>
+    <color name="colorPrimaryDark">#151a18</color>
+    <color name="colorAccent">#e4a313</color>
     <color name="notification_proxy_on">#b63131</color>
     <color name="notification_proxy_off">#758979</color>
 </resources>

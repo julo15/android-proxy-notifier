@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">ProxyNotifier</string>
+    <string name="app_name">Proxy Notifier</string>
+
+    <!-- Preferences -->
+    <string name="preference_group_proxy_info">Proxy information</string>
+    <string name="preference_proxy_enabled_key">pref_proxy_enabled</string>
+    <string name="preference_group_general">Basic settings</string>
+    <string name="preference_notification_enabled_key">pref_notification_enabled</string>
+    <string name="preference_notification_enabled_title">Notification enabled</string>
+    <string name="preference_notification_enabled_summary">Turns on or off the primary notification</string>
+    <string name="preference_open_wifi_key">pref_open_wifi</string>
+    <string name="preference_open_wifi_summary">Open wifi settings</string>
 </resources>
