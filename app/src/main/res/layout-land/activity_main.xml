@@ -22,7 +22,7 @@
             android:layout_gravity="center"
             android:layout_margin="20dp"
             android:scaleType="fitCenter"
-            tools:src="@drawable/ic_check_black_24dp"/>
+            tools:src="@drawable/ic_check_white_24dp"/>
 
     </FrameLayout>
 

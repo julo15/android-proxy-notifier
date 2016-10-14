@@ -64,7 +64,7 @@ public class ConnectivityReceiver extends BroadcastReceiver {
                 PendingIntent.FLAG_ONE_SHOT);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
-                .setSmallIcon(proxyDetails.isProxyOn() ? R.drawable.ic_priority_high_black_24dp : R.drawable.ic_check_black_24dp)
+                .setSmallIcon(proxyDetails.isProxyOn() ? R.drawable.ic_priority_high_white_24dp : R.drawable.ic_check_white_24dp)
                 .setColor(ContextCompat.getColor(context, proxyDetails.isProxyOn() ? R.color.notification_proxy_on : R.color.notification_proxy_off))
                 .setContentTitle(title)
                 .setContentText(text)
