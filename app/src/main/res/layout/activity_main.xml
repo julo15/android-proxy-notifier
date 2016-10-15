@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     tools:context="com.julianlo.example.proxynotifier.MainActivity">
@@ -16,13 +15,37 @@
         android:layout_height="0dp"
         android:layout_weight="1">
 
-        <ImageView
-            android:id="@+id/status_imageview"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+        <RelativeLayout
+            android:id="@+id/ad_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:scaleType="fitCenter"
-            tools:src="@drawable/ic_check_white_24dp"/>
+            android:layout_marginBottom="@dimen/ad_bottom_margin"
+            android:alpha="0">
+            <TextView
+                android:id="@+id/ad_label_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ad_label"
+                style="?android:attr/listSeparatorTextViewStyle"/>
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ad_label_textview"
+                app:cardElevation="@dimen/ad_card_elevation">
+                <com.google.android.gms.ads.AdView
+                    android:id="@+id/adview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:adSize="@string/ad_unit_main_native_size"
+                    app:adUnitId="@string/ad_unit_id_main_native"/>
+            </android.support.v7.widget.CardView>
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/status_scene_root"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
     </FrameLayout>
 

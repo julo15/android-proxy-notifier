@@ -7,5 +7,10 @@
     <string name="preference_notification_enabled_title">Notification enabled</string>
     <string name="preference_notification_enabled_summary">Turns on or off the primary notification</string>
     <string name="preference_open_wifi_key">pref_open_wifi</string>
-    <string name="preference_open_wifi_summary">Open wifi settings</string>
+    <string name="preference_open_wifi_summary">Tap to open wi-fi settings</string>
+
+    <string name="ad_unit_id_main_native">@string/ad_unit_id_main_native_portrait</string>
+    <string name="ad_unit_main_native_size">340x132</string>
+
+    <string name="ad_label">Our sponsor</string>
 </resources>

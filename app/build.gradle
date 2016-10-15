@@ -5,13 +5,18 @@ android {
     buildToolsVersion "24.0.1"
     defaultConfig {
         applicationId "com.apolloyang.proxynotifier"
-        minSdkVersion 15
+        minSdkVersion 19 // 15 to 19 because of Scene.getSceneForLayout
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        resValue "string", "ad_unit_id_main_native_portrait", "\"${admob_ad_unit_id_main_native_portrait}\""
+        resValue "string", "ad_unit_id_main_native_landscape", "\"${admob_ad_unit_id_main_native_landscape}\""
     }
     buildTypes {
+        debug {
+            buildConfigField "String", "ADMOB_TEST_DEVICE_ID", "\"${admob_test_device_id}\""
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -20,11 +25,15 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     compile 'com.android.support:preference-v7:24.2.1'
     testCompile 'junit:junit:4.12'
+    compile 'com.google.firebase:firebase-ads:9.6.1'
+    compile 'com.android.support:cardview-v7:24.2.1'
 }
+
+apply plugin: 'com.google.gms.google-services'

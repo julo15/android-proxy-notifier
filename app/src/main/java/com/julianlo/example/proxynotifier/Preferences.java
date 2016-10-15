@@ -11,6 +11,9 @@ import android.preference.PreferenceManager;
 public class Preferences {
 
     private static final String PREF_FILE_GENERAL = "general";
+    private static final String PREF_KEY_APP_FIRST_LAUNCH_MILLIS = "app_first_launch_millis";
+    private static final String PREF_KEY_APP_LAUNCH_COUNT = "app_launches_count";
+    private static final String PREF_KEY_LAST_AD_SHOWN_MILLIS = "last_ad_shown_millis";
 
     private static Preferences instance;
     private Context appContext;
@@ -26,6 +29,39 @@ public class Preferences {
     private Preferences(Context context) {
         appContext = context;
         sharedPreferences = context.getSharedPreferences(PREF_FILE_GENERAL, Context.MODE_PRIVATE);
+    }
+
+    public void setFirstLaunchIfNecessary() {
+        if (getFirstLaunchMillis() == 0) {
+            sharedPreferences.edit()
+                    .putLong(PREF_KEY_APP_FIRST_LAUNCH_MILLIS, System.currentTimeMillis())
+                    .apply();
+        }
+    }
+
+    public long getFirstLaunchMillis() {
+        return sharedPreferences.getLong(PREF_KEY_APP_FIRST_LAUNCH_MILLIS, 0);
+    }
+
+    public void incrementLaunchCount() {
+        int count = getAppLaunchCount() + 1;
+        sharedPreferences.edit()
+                .putInt(PREF_KEY_APP_LAUNCH_COUNT, count)
+                .apply();
+    }
+
+    public int getAppLaunchCount() {
+        return sharedPreferences.getInt(PREF_KEY_APP_LAUNCH_COUNT, 0);
+    }
+
+    public void updateLastAdShownMillis() {
+        sharedPreferences.edit()
+                .putLong(PREF_KEY_LAST_AD_SHOWN_MILLIS, System.currentTimeMillis())
+                .apply();
+    }
+
+    public long getLastAdShownMillis() {
+        return sharedPreferences.getLong(PREF_KEY_LAST_AD_SHOWN_MILLIS, 0);
     }
 
     public boolean isNotificationEnabled() {

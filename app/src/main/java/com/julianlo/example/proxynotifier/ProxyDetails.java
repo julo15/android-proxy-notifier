@@ -101,14 +101,14 @@ public class ProxyDetails {
     public String getWifiSummary() {
         StringBuilder sb = new StringBuilder();
         if (isWifiConnected()) {
-            sb.append("Wifi: ");
+            sb.append("Wi-fi: ");
             if (getSSID() != null) {
                 sb.append(getSSID());
             } else {
                 sb.append("Unknown");
             }
         } else {
-            sb.append("No Wifi");
+            sb.append("No Wi-fi");
         }
         return sb.toString();
     }

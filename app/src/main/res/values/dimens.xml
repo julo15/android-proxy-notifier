@@ -2,4 +2,9 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="status_image_size">140dp</dimen>
+    <dimen name="status_image_small_size">60dp</dimen>
+    <dimen name="ad_bottom_margin">30dp</dimen>
+    <dimen name="ad_card_elevation">2dp</dimen>
 </resources>

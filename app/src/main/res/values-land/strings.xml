@@ -1,0 +1,4 @@
+<resources>
+    <string name="ad_unit_id_main_native">@string/ad_unit_id_main_native_landscape</string>
+    <string name="ad_unit_main_native_size">280x120</string>
+</resources>
