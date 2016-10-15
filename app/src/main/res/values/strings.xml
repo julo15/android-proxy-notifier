@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name">Proxy Notifier</string>
-
     <!-- Preferences -->
     <string name="preference_group_proxy_info">Proxy information</string>
     <string name="preference_proxy_enabled_key">pref_proxy_enabled</string>
