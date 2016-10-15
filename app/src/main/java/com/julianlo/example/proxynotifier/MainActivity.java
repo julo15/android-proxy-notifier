@@ -56,9 +56,6 @@ public class MainActivity extends AppCompatActivity {
         TransitionManager.go(Scene.getSceneForLayout(statusSceneRoot, R.layout.scene_main_status, this));
         statusImageView = (ImageView)findViewById(R.id.status_imageview);
 
-        // Update the view
-        updateProxyInformation(ProxyDetails.retrieve(this));
-
         // Update the notification
         ConnectivityReceiver.updateNotification(this);
 
@@ -72,6 +69,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onPostResume() {
         super.onPostResume();
+
+        // Update the view
+        updateProxyInformation(ProxyDetails.retrieve(this));
+
         registerReceiver(proxyDetailsChangeReceiver, new IntentFilter(ConnectivityReceiver.ACTION_PROXY_DETAILS_CHANGE));
     }
 

@@ -7,6 +7,13 @@ import com.google.android.gms.ads.AdRequest;
  *   */
 
 public class AdRequestBuilderImpl implements AdRequestBuilder {
+
+    @Override
+    public boolean areAdsEnabled() {
+        return true;
+    }
+
+    @Override
     public AdRequest build() {
         return new AdRequest.Builder().build();
     }
