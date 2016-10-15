@@ -27,6 +27,9 @@
                 <action android:name="android.intent.action.PROXY_CHANGE" />
             </intent-filter>
         </receiver>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="${fabricApiKey}" />
     </application>
 
 </manifest>
