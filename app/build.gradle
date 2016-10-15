@@ -3,6 +3,14 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.1"
+    signingConfigs {
+        release {
+            storeFile file("android-proxy-notifier.jks")
+            storePassword credentials.storePassword
+            keyAlias android_proxy_notifier_key_alias
+            keyPassword credentials.keyPassword
+        }
+    }
     defaultConfig {
         applicationId "com.apolloyang.proxynotifier"
         minSdkVersion 19 // 15 to 19 because of Scene.getSceneForLayout
@@ -13,12 +21,21 @@ android {
         resValue "string", "ad_unit_id_main_native_portrait", "\"${admob_ad_unit_id_main_native_portrait}\""
         resValue "string", "ad_unit_id_main_native_landscape", "\"${admob_ad_unit_id_main_native_landscape}\""
     }
+    productFlavors {
+        open {
+            // Open source app: No ads!
+        }
+        store {
+            // Store app: Has ads to make some guap.
+        }
+    }
     buildTypes {
         debug {
             buildConfigField "String", "ADMOB_TEST_DEVICE_ID", "\"${admob_test_device_id}\""
         }
         release {
-            minifyEnabled false
+            minifyEnabled true
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }

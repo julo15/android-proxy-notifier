@@ -10,6 +10,13 @@ import com.julianlo.example.proxynotifier.BuildConfig;
  *   */
 
 public class AdRequestBuilderImpl implements AdRequestBuilder {
+
+    @Override
+    public boolean areAdsEnabled() {
+        return true;
+    }
+
+    @Override
     public AdRequest build() {
         return new AdRequest.Builder()
                 .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)

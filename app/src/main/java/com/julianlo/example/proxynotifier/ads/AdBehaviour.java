@@ -25,6 +25,13 @@ public class AdBehaviour {
     private long delayBeforeShowingMillis;
 
     public static AdBehaviour determine(Context context) {
+
+        // Never show ads on ad-free build variants.
+        if (!new AdRequestBuilderImpl().areAdsEnabled()) {
+            Log.d(TAG, "Skipping ad: Ad-free build variant!");
+            return noShow();
+        }
+
         final Preferences preferences = Preferences.getInstance(context);
 
         // Give an initial ad-free experience.
