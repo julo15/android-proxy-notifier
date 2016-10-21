@@ -51,13 +51,21 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
 
+    // Support libraries
     compile 'com.android.support:appcompat-v7:24.2.1'
-    compile 'com.android.support:preference-v7:24.2.1'
+    compile 'com.takisoft.fix:preference-v7:24.2.1.0'
     compile 'com.android.support:cardview-v7:24.2.1'
+
+    // Firebase
     compile 'com.google.firebase:firebase-ads:9.6.1'
+
+    // Crashlytics
     compile('com.crashlytics.sdk.android:crashlytics:2.6.5@aar') {
         transitive = true;
     }
+
+    // AppIntro
+    compile 'com.github.paolorotolo:appintro:4.1.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

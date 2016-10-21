@@ -9,6 +9,8 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
+import com.julianlo.example.proxynotifier.activities.MainActivity;
+
 /**
  * Created by julianlo on 10/12/16.
  */

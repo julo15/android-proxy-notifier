@@ -1,4 +1,4 @@
-package com.julianlo.example.proxynotifier;
+package com.julianlo.example.proxynotifier.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,11 +10,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.julianlo.example.proxynotifier.ConnectivityReceiver;
+import com.julianlo.example.proxynotifier.ProxyDetails;
+import com.julianlo.example.proxynotifier.R;
+
 /**
  * Created by julianlo on 10/13/16.
  */
 
 public class SettingsFragment extends PreferenceFragmentCompat {
+
+    public interface Listener {
+        void onLaunchIntro();
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +52,9 @@ public class SettingsFragment extends PreferenceFragmentCompat {
         } else if (doesPreferenceMatchKey(preference, R.string.preference_open_wifi_key)) {
             Intent intent = new Intent(Settings.ACTION_WIFI_SETTINGS);
             startActivity(intent);
+            return true;
+        } else if (doesPreferenceMatchKey(preference, R.string.preference_intro_key)) {
+            ((Listener)getActivity()).onLaunchIntro();
             return true;
         } else {
             return super.onPreferenceTreeClick(preference);

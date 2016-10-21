@@ -8,9 +8,24 @@
     <string name="preference_notification_enabled_summary">Turns on or off the primary notification</string>
     <string name="preference_open_wifi_key">pref_open_wifi</string>
     <string name="preference_open_wifi_summary">Tap to open wi-fi settings</string>
+    <string name="preference_intro_key">pref_intro</string>
+    <string name="preference_intro_title">View intro tutorial</string>
+    <string name="preference_intro_summary">Tap to open the intro tutorial again</string>
 
+    <!-- AdMob -->
     <string name="ad_unit_id_main_native">@string/ad_unit_id_main_native_portrait</string>
     <string name="ad_unit_main_native_size">340x132</string>
 
+    <!-- IntroActivity -->
+    <string name="first_slide_title">Welcome to %1$s!</string>
+    <string name="first_slide_description">This app provides a notification showing at all times to remind you whether or not you have a Wi-Fi proxy on.</string>
+    <string name="check_slide_title">Check mark means proxy is OFF!</string>
+    <string name="check_slide_description">You can glance at the device\'s status bar to see this.</string>
+    <string name="exclamation_slide_title">Exclamation mark means proxy is ON!</string>
+    <string name="exclamation_slide_description">In this case, make sure your proxy is running to be connected to the Internet!</string>
+    <string name="last_slide_title">That\'s all!</string>
+    <string name="last_slide_description">And have a nice day!</string>
+
+    <!-- MainActivity -->
     <string name="ad_label">Our sponsor</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.julianlo.example.proxynotifier;
+package com.julianlo.example.proxynotifier.activities;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -17,13 +17,19 @@ import android.widget.ImageView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.julianlo.example.proxynotifier.ConnectivityReceiver;
+import com.julianlo.example.proxynotifier.Preferences;
+import com.julianlo.example.proxynotifier.ProxyDetails;
+import com.julianlo.example.proxynotifier.R;
 import com.julianlo.example.proxynotifier.ads.AdBehaviour;
 import com.julianlo.example.proxynotifier.ads.AdRequestBuilderImpl;
+import com.julianlo.example.proxynotifier.fragments.SettingsFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements SettingsFragment.Listener {
     private static final String TAG = MainActivity.class.getSimpleName();
 
     public static final int REQUEST_NOTIFICATION_LAUNCH = 1;
+    private static final int REQUEST_INTRO_ON_CREATE = 2;
 
     private static final long AD_LOAD_TIME_MILLIS = 3000;
     private static final long AD_FADE_IN_DURATION_MILLIS = 1500;
@@ -31,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
     private ViewGroup statusSceneRoot;
     private ImageView statusImageView;
+
+    private boolean checkAdDone;
+    private static boolean introShown;
 
     private BroadcastReceiver proxyDetailsChangeReceiver = new BroadcastReceiver() {
         @Override
@@ -62,8 +71,13 @@ public class MainActivity extends AppCompatActivity {
         // Update the launch count before we check on ads
         Preferences.getInstance(this).incrementLaunchCount();
 
-        // Queue up an ad show if necessary
-        checkAdOnCreate();
+
+        if (shouldShowIntro()) {
+            proceedToIntro(true /* onCreate */);
+        } else {
+            // Queue up an ad show if necessary
+            checkAdOnCreate();
+        }
     }
 
     @Override
@@ -80,6 +94,30 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         unregisterReceiver(proxyDetailsChangeReceiver);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_INTRO_ON_CREATE) {
+            checkAdOnCreate();
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
+    @Override
+    public void onLaunchIntro() {
+        proceedToIntro(false /* onCreate */);
+    }
+
+    private void proceedToIntro(boolean onCreate) {
+        Intent intent = IntroActivity.newIntent(this);
+        if (onCreate) {
+            startActivityForResult(intent, REQUEST_INTRO_ON_CREATE);
+        } else {
+            startActivity(intent);
+        }
+        onIntroShown();
     }
 
     private SettingsFragment getSettingsFragment() {
@@ -103,6 +141,11 @@ public class MainActivity extends AppCompatActivity {
      * Helper called during onCreate that queues up the ad show if necessary.
      */
     private void checkAdOnCreate() {
+        if (checkAdDone) {
+            return;
+        }
+
+        checkAdDone = true;
         final AdBehaviour adBehaviour = AdBehaviour.determine(this);
         if (adBehaviour.isShouldShow()) {
             // showAd will add its own delay of AD_LOAD_TIME_MILLIS, so subtract that amount off here.
@@ -169,5 +212,13 @@ public class MainActivity extends AppCompatActivity {
 
         // Give the ad some time to load before fading it in.
         statusSceneRoot.postDelayed(adTransition, AD_LOAD_TIME_MILLIS);
+    }
+
+    private boolean shouldShowIntro() {
+        return !introShown;
+    }
+
+    private void onIntroShown() {
+        introShown = true;
     }
 }
