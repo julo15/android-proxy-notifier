@@ -1,4 +1,4 @@
-package com.julianlo.example.proxynotifier;
+package com.julo.android.proxynotifier;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -9,7 +9,7 @@ import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 
-import com.julianlo.example.proxynotifier.activities.MainActivity;
+import com.julo.android.proxynotifier.activities.MainActivity;
 
 /**
  * Created by julianlo on 10/12/16.

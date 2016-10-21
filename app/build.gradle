@@ -13,7 +13,7 @@ android {
         }
     }
     defaultConfig {
-        applicationId "com.apolloyang.proxynotifier"
+        applicationId "com.julo.android.proxynotifier"
         minSdkVersion 19 // 15 to 19 because of Scene.getSceneForLayout
         targetSdkVersion 24
         versionCode 1

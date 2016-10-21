@@ -1,4 +1,4 @@
-package com.julianlo.example.proxynotifier.activities;
+package com.julo.android.proxynotifier.activities;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -17,13 +17,13 @@ import android.widget.ImageView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
-import com.julianlo.example.proxynotifier.ConnectivityReceiver;
-import com.julianlo.example.proxynotifier.Preferences;
-import com.julianlo.example.proxynotifier.ProxyDetails;
-import com.julianlo.example.proxynotifier.R;
-import com.julianlo.example.proxynotifier.ads.AdBehaviour;
-import com.julianlo.example.proxynotifier.ads.AdRequestBuilderImpl;
-import com.julianlo.example.proxynotifier.fragments.SettingsFragment;
+import com.julo.android.proxynotifier.ConnectivityReceiver;
+import com.julo.android.proxynotifier.Preferences;
+import com.julo.android.proxynotifier.ProxyDetails;
+import com.julo.android.proxynotifier.R;
+import com.julo.android.proxynotifier.ads.AdBehaviour;
+import com.julo.android.proxynotifier.ads.AdRequestBuilderImpl;
+import com.julo.android.proxynotifier.fragments.SettingsFragment;
 
 public class MainActivity extends AppCompatActivity implements SettingsFragment.Listener {
     private static final String TAG = MainActivity.class.getSimpleName();

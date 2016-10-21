@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.julianlo.example.proxynotifier">
+    package="com.julo.android.proxynotifier">
 
     <!-- Permissions -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -8,13 +8,13 @@
     <uses-permission android:name="android.permission.INTERNET" /> <!-- for AdMob -->
 
     <application
-        android:name=".App"
+        android:name="com.julo.android.proxynotifier.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_settings_input_antenna_black_48dp"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.MainActivity">
+        <activity android:name="com.julo.android.proxynotifier.activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,9 +22,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.IntroActivity"
+            android:name="com.julo.android.proxynotifier.activities.IntroActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <receiver android:name=".ConnectivityReceiver">
+        <receiver android:name="com.julo.android.proxynotifier.ConnectivityReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
                 <action android:name="android.intent.action.PROXY_CHANGE" />

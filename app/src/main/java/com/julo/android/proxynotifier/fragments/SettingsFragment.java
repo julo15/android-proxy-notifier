@@ -1,4 +1,4 @@
-package com.julianlo.example.proxynotifier.fragments;
+package com.julo.android.proxynotifier.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,9 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.julianlo.example.proxynotifier.ConnectivityReceiver;
-import com.julianlo.example.proxynotifier.ProxyDetails;
-import com.julianlo.example.proxynotifier.R;
+import com.julo.android.proxynotifier.ConnectivityReceiver;
+import com.julo.android.proxynotifier.ProxyDetails;
+import com.julo.android.proxynotifier.R;
 
 /**
  * Created by julianlo on 10/13/16.

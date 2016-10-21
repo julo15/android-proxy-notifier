@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:orientation="horizontal"
-    tools:context="com.julianlo.example.proxynotifier.activities.MainActivity">
+    tools:context="com.julo.android.proxynotifier.activities.MainActivity">
 
     <FrameLayout
         android:layout_width="0dp"

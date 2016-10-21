@@ -1,10 +1,10 @@
-package com.julianlo.example.proxynotifier.ads;
+package com.julo.android.proxynotifier.ads;
 
 import android.content.Context;
 import android.util.Log;
 
-import com.julianlo.example.proxynotifier.Config;
-import com.julianlo.example.proxynotifier.Preferences;
+import com.julo.android.proxynotifier.Config;
+import com.julo.android.proxynotifier.Preferences;
 
 import java.util.Date;
 

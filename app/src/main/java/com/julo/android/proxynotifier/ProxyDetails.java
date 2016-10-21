@@ -1,4 +1,4 @@
-package com.julianlo.example.proxynotifier;
+package com.julo.android.proxynotifier;
 
 import android.annotation.TargetApi;
 import android.content.Context;

@@ -1,4 +1,4 @@
-package com.julianlo.example.proxynotifier;
+package com.julo.android.proxynotifier;
 
 /**
  * Created by julianlo on 10/15/16.

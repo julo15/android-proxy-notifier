@@ -1,9 +1,7 @@
-package com.julianlo.example.proxynotifier.ads;
-
-import android.util.Log;
+package com.julo.android.proxynotifier.ads;
 
 import com.google.android.gms.ads.AdRequest;
-import com.julianlo.example.proxynotifier.BuildConfig;
+import com.julo.android.proxynotifier.BuildConfig;
 
 /**
  *  * Created by julianlo on 10/14/16.

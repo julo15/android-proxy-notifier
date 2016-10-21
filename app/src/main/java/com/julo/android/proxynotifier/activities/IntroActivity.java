@@ -1,4 +1,4 @@
-package com.julianlo.example.proxynotifier.activities;
+package com.julo.android.proxynotifier.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,8 +11,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 
 import com.github.paolorotolo.appintro.AppIntro;
-import com.julianlo.example.proxynotifier.R;
-import com.julianlo.example.proxynotifier.fragments.IntroFragment;
+import com.julo.android.proxynotifier.R;
+import com.julo.android.proxynotifier.fragments.IntroFragment;
 
 /**
  * Created by julianlo on 10/15/16.

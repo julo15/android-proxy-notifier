@@ -1,11 +1,11 @@
-package com.julianlo.example.proxynotifier.fragments;
+package com.julo.android.proxynotifier.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
 
 import com.github.paolorotolo.appintro.AppIntroBaseFragment;
-import com.julianlo.example.proxynotifier.R;
+import com.julo.android.proxynotifier.R;
 
 /**
  * Created by julianlo on 10/15/16.

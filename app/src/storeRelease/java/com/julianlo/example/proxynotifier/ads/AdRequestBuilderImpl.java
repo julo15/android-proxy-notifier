@@ -1,4 +1,4 @@
-package com.julianlo.example.proxynotifier.ads;
+package com.julo.android.proxynotifier.ads;
 
 import com.google.android.gms.ads.AdRequest;
 
