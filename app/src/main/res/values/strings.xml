@@ -7,7 +7,7 @@
     <string name="preference_notification_enabled_title">Notification enabled</string>
     <string name="preference_notification_enabled_summary">Turns on or off the primary notification</string>
     <string name="preference_open_wifi_key">pref_open_wifi</string>
-    <string name="preference_open_wifi_summary">Tap to open wi-fi settings</string>
+    <string name="preference_open_wifi_summary">Tap to open Wi-Fi settings</string>
     <string name="preference_intro_key">pref_intro</string>
     <string name="preference_intro_title">View intro tutorial</string>
     <string name="preference_intro_summary">Tap to open the intro tutorial again</string>
@@ -28,4 +28,13 @@
 
     <!-- MainActivity -->
     <string name="ad_label">Our sponsor</string>
+
+    <!-- SettingsFragment -->
+    <string name="proxy_toast">Tap on Wi-Fi settings to adjust your proxy settings.</string>
+    <string name="dismiss">Dismiss</string>
+
+    <!-- ProxyDetails -->
+    <string name="wifi_summary_connected">Wi-Fi: %1$s</string>
+    <string name="wifi_summary_disconnected">No Wi-Fi</string>
+    <string name="unknown_wifi">Unknown</string>
 </resources>

@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity implements SettingsFragment.
     private ImageView statusImageView;
 
     private boolean checkAdDone;
-    private static boolean introShown;
 
     private BroadcastReceiver proxyDetailsChangeReceiver = new BroadcastReceiver() {
         @Override
@@ -70,7 +69,6 @@ public class MainActivity extends AppCompatActivity implements SettingsFragment.
 
         // Update the launch count before we check on ads
         Preferences.getInstance(this).incrementLaunchCount();
-
 
         if (shouldShowIntro()) {
             proceedToIntro(true /* onCreate */);
@@ -215,10 +213,10 @@ public class MainActivity extends AppCompatActivity implements SettingsFragment.
     }
 
     private boolean shouldShowIntro() {
-        return !introShown;
+        return !Preferences.getInstance(this).getIntroShown();
     }
 
     private void onIntroShown() {
-        introShown = true;
+        Preferences.getInstance(this).setIntroShown();
     }
 }

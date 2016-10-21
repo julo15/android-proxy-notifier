@@ -98,18 +98,11 @@ public class ProxyDetails {
         return ssid;
     }
 
-    public String getWifiSummary() {
-        StringBuilder sb = new StringBuilder();
+    public String getWifiSummary(Context context) {
         if (isWifiConnected()) {
-            sb.append("Wi-fi: ");
-            if (getSSID() != null) {
-                sb.append(getSSID());
-            } else {
-                sb.append("Unknown");
-            }
+            return context.getString(R.string.wifi_summary_connected, getSSID() != null ? getSSID() : R.string.unknown_wifi);
         } else {
-            sb.append("No Wi-fi");
+            return context.getString(R.string.wifi_summary_disconnected);
         }
-        return sb.toString();
     }
 }
