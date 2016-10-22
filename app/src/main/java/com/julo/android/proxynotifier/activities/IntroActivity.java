@@ -46,7 +46,7 @@ public class IntroActivity extends AppIntro {
                 R.color.slide_text);
         addSlide(getString(R.string.last_slide_title),
                 R.string.last_slide_description,
-                R.drawable.ic_play_circle_outline_white_48dp,
+                R.drawable.ic_sentiment_satisfied_white_48dp,
                 R.color.last_slide_background,
                 R.color.slide_text);
     }

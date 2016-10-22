@@ -1,55 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context="com.julo.android.proxynotifier.activities.MainActivity">
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <RelativeLayout
-            android:id="@+id/ad_container"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/ad_bottom_margin"
-            android:alpha="0">
-            <TextView
-                android:id="@+id/ad_label_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/ad_label"
-                style="?android:attr/listSeparatorTextViewStyle"/>
-            <android.support.v7.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/ad_label_textview"
-                app:cardElevation="@dimen/ad_card_elevation">
-                <com.google.android.gms.ads.AdView
-                    android:id="@+id/adview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:adSize="@string/ad_unit_main_native_size"
-                    app:adUnitId="@string/ad_unit_id_main_native"/>
-            </android.support.v7.widget.CardView>
-        </RelativeLayout>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <FrameLayout
-            android:id="@+id/status_scene_root"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-    </FrameLayout>
+            <RelativeLayout
+                android:id="@+id/ad_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/ad_bottom_margin"
+                android:alpha="0">
+                <TextView
+                    android:id="@+id/ad_label_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ad_label"
+                    style="?android:attr/listSeparatorTextViewStyle"/>
+                <android.support.v7.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ad_label_textview"
+                    app:cardElevation="@dimen/ad_card_elevation">
+                    <com.google.android.gms.ads.AdView
+                        android:id="@+id/adview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:adSize="@string/ad_unit_main_native_size"
+                        app:adUnitId="@string/ad_unit_id_main_native"/>
+                </android.support.v7.widget.CardView>
+            </RelativeLayout>
 
-    <android.support.design.widget.CoordinatorLayout
-        android:id="@+id/settings_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+            <FrameLayout
+                android:id="@+id/status_scene_root"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
-</LinearLayout>
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/settings_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>
