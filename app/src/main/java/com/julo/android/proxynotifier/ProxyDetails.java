@@ -8,6 +8,7 @@ import android.net.ProxyInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
+import android.support.annotation.Nullable;
 import android.util.Log;
 
 /**
@@ -26,23 +27,23 @@ public class ProxyDetails {
 
     public static ProxyDetails retrieve(Context context) {
         // Proxy info
-        boolean isProxyOn;
         String proxyHost = null;
         String proxyPort = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Log.d(TAG, "retrieve: On Marshmallow or higher");
             ProxyInfo proxyInfo = getProxyInfo(context);
-            isProxyOn = (proxyInfo != null);
-            if (isProxyOn) {
+            if ((proxyInfo != null)) {
+                Log.d(TAG, "retrieve: proxyInfo not null");
                 proxyHost = proxyInfo.getHost();
                 proxyPort = String.valueOf(proxyInfo.getPort());
             }
         } else {
+            Log.d(TAG, "retrieve: Below Marshmallow");
             proxyHost = System.getProperty("http.proxyHost");
             proxyPort = System.getProperty("http.proxyPort");
-            isProxyOn = (proxyHost != null) && (proxyPort != null);
         }
 
-        ProxyDetails proxyDetails = new ProxyDetails(isProxyOn, proxyHost, proxyPort);
+        ProxyDetails proxyDetails = new ProxyDetails(proxyHost, proxyPort);
 
         // Wifi info
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -56,11 +57,13 @@ public class ProxyDetails {
             }
         }
 
+        Log.d(TAG, "retrieve: " + proxyDetails);
+
         return proxyDetails;
     }
 
-    private ProxyDetails(boolean isProxyOn, String proxyHost, String proxyPort) {
-        this.isProxyOn = isProxyOn;
+    private ProxyDetails(@Nullable String proxyHost, @Nullable String proxyPort) {
+        this.isProxyOn = !isStringNullOrEmpty(proxyHost) && !isStringNullOrEmpty(proxyPort);
         this.proxyHost = proxyHost;
         this.proxyPort = proxyPort;
     }
@@ -104,5 +107,29 @@ public class ProxyDetails {
         } else {
             return context.getString(R.string.wifi_summary_disconnected);
         }
+    }
+
+    private static boolean isStringNullOrEmpty(String s) {
+        return (s == null) || s.isEmpty();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("on=");
+        sb.append(isProxyOn());
+        if (isProxyOn()) {
+            sb.append(", host=");
+            sb.append(getProxyHost());
+            sb.append(", port=");
+            sb.append(getProxyPort());
+        }
+        if (!isStringNullOrEmpty(getSSID())) {
+            sb.append(", wifi=");
+            sb.append(getSSID());
+        } else {
+            sb.append(", no wifi");
+        }
+        return sb.toString();
     }
 }
