@@ -16,8 +16,8 @@ android {
         applicationId "com.julo.android.proxynotifier"
         minSdkVersion 19 // 15 to 19 because of Scene.getSceneForLayout
         targetSdkVersion 24
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         resValue "string", "ad_unit_id_main_native_portrait", "\"${admob_ad_unit_id_main_native_portrait}\""
         resValue "string", "ad_unit_id_main_native_landscape", "\"${admob_ad_unit_id_main_native_landscape}\""
